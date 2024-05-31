@@ -1,0 +1,30 @@
+<main class="container">
+    <h1 class="my-4">Lista de Livros</h1>
+    <table class="table table-striped">
+        <thead style="background-color: #201e1e; color: white;">
+            <tr>
+                <th>Título</th>
+                <th>Resumo</th>
+                <th>Editora</th>
+                <th>Autores</th>
+                <th></th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let livro of livros">
+                <td>
+                    <div class="title-button-container">
+                        <div>{{ livro.titulo }}</div>
+                        <button class="btn btn-danger" (click)="excluir(livro.codigo)">Excluir</button>
+                    </div>
+                </td>
+                <td>{{ livro.resumo }}</td>
+                <td>{{ obterNome(livro.codEditora) }}</td>
+                <td>
+                    <ul>
+                        <li *ngFor="let autor of livro.autores">{{ autor }}</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</main>
